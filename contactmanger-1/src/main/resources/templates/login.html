@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <!-- Meta information -->
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Login Section -->
+    <section>
+        <!-- Login Container -->
+        <div id="login">
+            <div class="container">
+                <!-- Login Row -->
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <!-- Login Column -->
+                    <div id="login-column" class="col-md-6">
+                        <!-- Login Box -->
+                        <div id="login-box" class="col-md-12">
+                            <!-- Login Form -->
+                            <form id="login-form" class="form" th:action="@{/signin}" action="#" method="post">
+                                <!-- Login Heading -->
+                                <h3 class="text-center text-info">Login</h3>
+
+                                <!-- Error and Logout Messages -->
+                                <div class="row justify-content-center">
+                                    <!-- Error Message -->
+                                    <div th:if="${param.error}" class="col-md-6 alert alert-danger text-center">
+                                        Invalid username and password
+                                    </div>
+                                    <!-- Logout Message -->
+                                    <div th:if="${param.logout}" class="col-md-6 alert alert-success text-center">
+                                        You have logged out
+                                    </div>
+                                </div>
+
+                                <!-- Username Field -->
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Username:</label><br>
+                                    <input type="text" name="username" id="username" class="form-control">
+                                </div>
+
+                                <!-- Password Field -->
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Password:</label><br>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                </div>
+
+                                <!-- Remember Me Checkbox -->
+                                <div class="form-group text-center">
+                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input
+                                                id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                    <!-- Submit Button -->
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+
+                                <!-- Register Link -->
+                                <div id="register-link" class="text-right">
+                                    <a href="/signup" class="text-info">Register here</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
